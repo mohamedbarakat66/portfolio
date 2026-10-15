@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,40 +11,92 @@
       content="Mohamed Barakat is a Computer Science student and aspiring Full-Stack Developer interested in web development and building modern web applications."
     />
 
+    <meta name="theme-color" content="#2563eb" />
+
+  
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
     />
+
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
 
     <link rel="icon" type="image/png" href="images/favicon.png" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <header>
-      <nav class="navbar">
-        <h2 class="logo">Mohamed Barakat</h2>
+      <nav class="navbar" aria-label="Main navigation">
+        <div class="logo">
+          <img
+            src="images/logo.webp"
+            srcset="images/logo-small.webp 450w, images/logo.webp 1280w"
+            sizes="(max-width: 768px) 180px, (max-width: 1000px) 180px, 230px"
+            alt="Mohamed Barakat Logo"
+            width="320"
+            height="130"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
 
-        <button id="menuBtn">☰</button>
+        <button
+          id="menuBtn"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="navLinks"
+        >
+          ☰
+        </button>
 
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#goals">Goals</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" data-en="Home" data-ar="الرئيسية">Home</a></li>
+          <li><a href="#about" data-en="About" data-ar="من أنا">About</a></li>
+          <li>
+            <a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a>
+          </li>
+          <li><a href="#goals" data-en="Goals" data-ar="أهدافي">Goals</a></li>
+          <li>
+            <a href="#projects" data-en="Projects" data-ar="المشاريع"
+              >Projects</a
+            >
+          </li>
+          <li>
+            <a href="#contact" data-en="Contact" data-ar="تواصل معي">Contact</a>
+          </li>
         </ul>
 
-        <button id="darkModeBtn">🌙</button>
+        <div class="nav-controls">
+          <button id="languageBtn" type="button" aria-label="Switch language">
+            عربي
+          </button>
+
+          <button
+            id="darkModeBtn"
+            type="button"
+            aria-label="Toggle dark mode"
+            aria-pressed="false"
+          >
+            🌙
+          </button>
+        </div>
       </nav>
     </header>
 
@@ -52,36 +104,71 @@
       <!-- Hero Section -->
       <section id="home" class="hero">
         <div class="hero-content">
-          <p>Hello, I'm</p>
+          <p data-en="Hello, I'm" data-ar="أهلًا، أنا">Hello, I'm</p>
 
           <h1>Mohamed Barakat</h1>
 
-          <h2>Computer Science Student & Aspiring Full-Stack Developer</h2>
+          <h2
+            data-en="Computer Science Student & Aspiring Full-Stack Developer"
+            data-ar="طالب علوم حاسب ومطور Full-Stack طموح"
+          >
+            Computer Science Student &amp; Aspiring Full-Stack Developer
+          </h2>
 
-          <p>
+          <p
+            data-en="Third-year Computer Science student at the Faculty of Computers and Information, Qena."
+            data-ar="طالب في الفرقة الثالثة بكلية الحاسبات والمعلومات بقنا."
+          >
             Third-year Computer Science student at the Faculty of Computers and
             Information, Qena.
           </p>
 
-          <a href="#projects" class="btn">View My Projects</a>
+          <a
+            href="#projects"
+            class="btn"
+            data-en="View My Projects"
+            data-ar="شاهد مشاريعي"
+          >
+            View My Projects
+          </a>
         </div>
 
         <div class="hero-image">
-          <img src="images/profile.jpeg" alt="Mohamed Barakat" />
+          <picture>
+            <source
+              media="(max-width: 768px)"
+              srcset="images/profile-small.webp"
+            />
+
+            <img
+              src="images/profile.webp"
+              alt="Mohamed Barakat"
+              width="960"
+              height="1280"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </picture>
         </div>
       </section>
 
       <!-- About Section -->
       <section id="about" class="about">
-        <h2>About Me</h2>
+        <h2 data-en="About Me" data-ar="من أنا">About Me</h2>
 
-        <p>
+        <p
+          data-en="I am a third-year Computer Science student at the Faculty of Computers and Information, Qena. I am interested in web development and currently working on improving my front-end and programming skills."
+          data-ar="أنا طالب في الفرقة الثالثة بكلية الحاسبات والمعلومات بقنا. أهتم بتطوير الويب وأعمل حاليًا على تحسين مهاراتي في Front-End والبرمجة."
+        >
           I am a third-year Computer Science student at the Faculty of Computers
           and Information, Qena. I am interested in web development and
           currently working on improving my front-end and programming skills.
         </p>
 
-        <p>
+        <p
+          data-en="My goal is to become a professional Full-Stack Developer and build useful, modern, and responsive web applications."
+          data-ar="هدفي أن أصبح مطور Full-Stack محترفًا وأبني تطبيقات ويب مفيدة وحديثة ومتوافقة مع مختلف الشاشات."
+        >
           My goal is to become a professional Full-Stack Developer and build
           useful, modern, and responsive web applications.
         </p>
@@ -89,68 +176,104 @@
 
       <!-- Skills Section -->
       <section id="skills" class="skills">
-        <h2>My Skills</h2>
+        <h2 data-en="My Skills" data-ar="مهاراتي">My Skills</h2>
 
         <div class="skills-container">
           <div class="skill">
             <h3>HTML</h3>
-            <p>Structure of web pages</p>
+            <p data-en="Structure of web pages" data-ar="بناء هيكل صفحات الويب">
+              Structure of web pages
+            </p>
           </div>
 
           <div class="skill">
             <h3>CSS</h3>
-            <p>Styling and responsive design</p>
+            <p
+              data-en="Styling and responsive design"
+              data-ar="تنسيق المواقع والتصميم المتجاوب"
+            >
+              Styling and responsive design
+            </p>
           </div>
 
           <div class="skill">
             <h3>JavaScript</h3>
-            <p>Web interactions and DOM</p>
+            <p
+              data-en="Web interactions and DOM"
+              data-ar="التفاعل مع صفحات الويب وDOM"
+            >
+              Web interactions and DOM
+            </p>
           </div>
 
           <div class="skill">
             <h3>Python</h3>
-            <p>Programming and problem solving</p>
+            <p
+              data-en="Programming and problem solving"
+              data-ar="البرمجة وحل المشكلات"
+            >
+              Programming and problem solving
+            </p>
           </div>
 
           <div class="skill">
             <h3>C++</h3>
-            <p>Programming and algorithms</p>
+            <p
+              data-en="Programming and algorithms"
+              data-ar="البرمجة والخوارزميات"
+            >
+              Programming and algorithms
+            </p>
           </div>
 
           <div class="skill">
             <h3>TypeScript</h3>
-            <p>Currently Learning</p>
+            <p data-en="Currently Learning" data-ar="أتعلمها حاليًا">
+              Currently Learning
+            </p>
           </div>
         </div>
       </section>
 
       <!-- Goals Section -->
       <section id="goals" class="goals">
-        <h2>My Goals</h2>
+        <h2 data-en="My Goals" data-ar="أهدافي">My Goals</h2>
 
         <div class="goals-container">
           <div class="goal">
-            <h3>Full-Stack Developer</h3>
-
-            <p>
+            <h3 data-en="Full-Stack Developer" data-ar="مطور Full-Stack">
+              Full-Stack Developer
+            </h3>
+            <p
+              data-en="My goal is to become a professional Full-Stack Developer and build complete web applications."
+              data-ar="هدفي أن أصبح مطور Full-Stack محترفًا وأبني تطبيقات ويب متكاملة."
+            >
               My goal is to become a professional Full-Stack Developer and build
               complete web applications.
             </p>
           </div>
 
           <div class="goal">
-            <h3>Keep Learning</h3>
-
-            <p>
+            <h3 data-en="Keep Learning" data-ar="التعلم المستمر">
+              Keep Learning
+            </h3>
+            <p
+              data-en="I am always learning new technologies and improving my programming and web development skills."
+              data-ar="أحرص دائمًا على تعلم تقنيات جديدة وتطوير مهاراتي في البرمجة وتطوير الويب."
+            >
               I am always learning new technologies and improving my programming
               and web development skills.
             </p>
           </div>
 
           <div class="goal">
-            <h3>Build Real Projects</h3>
-
-            <p>
+            <h3 data-en="Build Real Projects" data-ar="بناء مشاريع حقيقية">
+              Build Real Projects
+            </h3>
+            <p
+              data-en="I want to build real-world projects that improve my experience and solve useful problems."
+              data-ar="أريد بناء مشاريع واقعية تساعدني على اكتساب الخبرة وحل مشكلات مفيدة."
+            >
               I want to build real-world projects that improve my experience and
               solve useful problems.
             </p>
@@ -160,20 +283,25 @@
 
       <!-- Projects Section -->
       <section id="projects" class="projects">
-        <h2>My Projects</h2>
+        <h2 data-en="My Projects" data-ar="مشاريعي">My Projects</h2>
 
         <div class="projects-container">
           <!-- Project 1 -->
           <div class="project-card">
             <h3>Quiz App</h3>
 
-            <p>
+            <p
+              data-en="An interactive quiz application with multiple questions and dynamic results using TypeScript."
+              data-ar="تطبيق اختبارات تفاعلي يحتوي على أسئلة متعددة ويعرض النتائج باستخدام TypeScript."
+            >
               An interactive quiz application with multiple questions and
               dynamic results using TypeScript.
             </p>
 
             <p>
-              <strong>Technologies:</strong>
+              <strong data-en="Technologies:" data-ar="التقنيات المستخدمة:">
+                Technologies:
+              </strong>
               HTML, CSS, TypeScript
             </p>
 
@@ -184,8 +312,26 @@
                 rel="noopener noreferrer"
                 class="btn"
               >
-                <i class="fa-solid fa-globe"></i>
-                Live Demo
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <ellipse cx="12" cy="12" rx="4" ry="10" />
+                  <path d="M2 12h20" />
+                  <path d="M4.93 5.93c3.9 2.1 10.24 2.1 14.14 0" />
+                  <path d="M4.93 18.07c3.9-2.1 10.24-2.1 14.14 0" />
+                </svg>
+
+                <span data-en="Live Demo" data-ar="عرض المشروع">Live Demo</span>
               </a>
 
               <a
@@ -194,7 +340,18 @@
                 rel="noopener noreferrer"
                 class="btn"
               >
-                <i class="fa-brands fa-github"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.3-1.23-1.64-1.23-1.64-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.69 2.59 1.2 3.22.92.1-.72.39-1.2.7-1.48-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.29-2.62 5.23-5.11 5.51.4.35.75 1.02.75 2.06v3.1c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9z"
+                  />
+                </svg>
                 GitHub
               </a>
             </div>
@@ -204,13 +361,18 @@
           <div class="project-card">
             <h3>Restaurant Menu</h3>
 
-            <p>
+            <p
+              data-en="A responsive restaurant menu website that displays different food items in a simple and modern design."
+              data-ar="موقع قائمة طعام متجاوب يعرض أصنافًا مختلفة بتصميم بسيط وعصري."
+            >
               A responsive restaurant menu website that displays different food
               items in a simple and modern design.
             </p>
 
             <p>
-              <strong>Technologies:</strong>
+              <strong data-en="Technologies:" data-ar="التقنيات المستخدمة:">
+                Technologies:
+              </strong>
               HTML, CSS, JavaScript
             </p>
 
@@ -221,8 +383,25 @@
                 rel="noopener noreferrer"
                 class="btn"
               >
-                <i class="fa-solid fa-globe"></i>
-                Live Demo
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <ellipse cx="12" cy="12" rx="4" ry="10" />
+                  <path d="M2 12h20" />
+                  <path d="M4.93 5.93c3.9 2.1 10.24 2.1 14.14 0" />
+                  <path d="M4.93 18.07c3.9-2.1 10.24-2.1 14.14 0" />
+                </svg>
+                <span data-en="Live Demo" data-ar="عرض المشروع">Live Demo</span>
               </a>
 
               <a
@@ -231,7 +410,18 @@
                 rel="noopener noreferrer"
                 class="btn"
               >
-                <i class="fa-brands fa-github"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.3-1.23-1.64-1.23-1.64-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.69 2.59 1.2 3.22.92.1-.72.39-1.2.7-1.48-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.29-2.62 5.23-5.11 5.51.4.35.75 1.02.75 2.06v3.1c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9z"
+                  />
+                </svg>
                 GitHub
               </a>
             </div>
@@ -241,13 +431,18 @@
           <div class="project-card">
             <h3>DNK Store</h3>
 
-            <p>
+            <p
+              data-en="A modern and responsive e-commerce website built to practice front-end development and web design."
+              data-ar="متجر إلكتروني عصري ومتجاوب للتدرب على تطوير الواجهات وتصميم الويب."
+            >
               A modern and responsive e-commerce website built to practice
               front-end development and web design.
             </p>
 
             <p>
-              <strong>Technologies:</strong>
+              <strong data-en="Technologies:" data-ar="التقنيات المستخدمة:">
+                Technologies:
+              </strong>
               HTML, CSS
             </p>
 
@@ -258,8 +453,25 @@
                 rel="noopener noreferrer"
                 class="btn"
               >
-                <i class="fa-solid fa-globe"></i>
-                Live Demo
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.7"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <ellipse cx="12" cy="12" rx="4" ry="10" />
+                  <path d="M2 12h20" />
+                  <path d="M4.93 5.93c3.9 2.1 10.24 2.1 14.14 0" />
+                  <path d="M4.93 18.07c3.9-2.1 10.24-2.1 14.14 0" />
+                </svg>
+                <span data-en="Live Demo" data-ar="عرض المشروع">Live Demo</span>
               </a>
 
               <a
@@ -268,7 +480,19 @@
                 rel="noopener noreferrer"
                 class="btn"
               >
-                <i class="fa-brands fa-github"></i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.3-1.23-1.64-1.23-1.64-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.69 2.59 1.2 3.22.92.1-.72.39-1.2.7-1.48-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.29-2.62 5.23-5.11 5.51.4.35.75 1.02.75 2.06v3.1c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9z"
+                  />
+                </svg>
+
                 GitHub
               </a>
             </div>
@@ -278,16 +502,30 @@
 
       <!-- Contact Section -->
       <section id="contact" class="contact">
-        <h2>Contact Me</h2>
+        <h2 data-en="Contact Me" data-ar="تواصل معي">Contact Me</h2>
 
-        <p>
+        <p
+          data-en="Feel free to contact me if you want to work together or just say hello."
+          data-ar="يسعدني تواصلك معي إذا كنت ترغب في العمل معًا أو حتى إلقاء التحية."
+        >
           Feel free to contact me if you want to work together or just say
           hello.
         </p>
 
         <div class="contact-info">
           <a href="mailto:mbarakat16706@gmail.com" aria-label="Email">
-            <i class="fa-solid fa-envelope"></i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 512 512"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M61.4 64C27.5 64 0 91.5 0 125.4 0 126.3 0 127.1 .1 128L0 128 0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256-.1 0c0-.9 .1-1.7 .1-2.6 0-33.9-27.5-61.4-61.4-61.4L61.4 64zM464 192.3L464 384c0 8.8-7.2 16-16 16L64 400c-8.8 0-16-7.2-16-16l0-191.7 154.8 117.4c31.4 23.9 74.9 23.9 106.4 0L464 192.3zM48 125.4C48 118 54 112 61.4 112l389.2 0c7.4 0 13.4 6 13.4 13.4 0 4.2-2 8.2-5.3 10.7L280.2 271.5c-14.3 10.8-34.1 10.8-48.4 0L53.3 136.1c-3.3-2.5-5.3-6.5-5.3-10.7z"
+              />
+            </svg>
           </a>
 
           <a
@@ -296,7 +534,18 @@
             rel="noopener noreferrer"
             aria-label="GitHub"
           >
-            <i class="fa-brands fa-github"></i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.32-3.76-1.32-.5-1.3-1.23-1.64-1.23-1.64-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.69 2.59 1.2 3.22.92.1-.72.39-1.2.7-1.48-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.29-2.62 5.23-5.11 5.51.4.35.75 1.02.75 2.06v3.1c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9z"
+              />
+            </svg>
           </a>
 
           <a
@@ -305,32 +554,102 @@
             rel="noopener noreferrer"
             aria-label="LinkedIn"
           >
-            <i class="fa-brands fa-linkedin"></i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.55V9h3.57v11.45ZM22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.23 0Z"
+              />
+            </svg>
           </a>
         </div>
 
         <form id="contactForm">
-          <input type="text" id="name" placeholder="Your Name" />
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your Name"
+            data-placeholder-en="Your Name"
+            data-placeholder-ar="اسمك"
+            autocomplete="name"
+            required
+          />
 
-          <input type="email" id="email" placeholder="Your Email" />
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your Email"
+            data-placeholder-en="Your Email"
+            data-placeholder-ar="بريدك الإلكتروني"
+            autocomplete="email"
+            required
+          />
 
-          <textarea id="message" placeholder="Your Message"></textarea>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Your Message"
+            data-placeholder-en="Your Message"
+            data-placeholder-ar="رسالتك"
+            required
+          ></textarea>
 
-          <button type="submit" class="btn">Send Message</button>
+          <button
+            type="submit"
+            class="btn"
+            data-en="Send Message"
+            data-ar="إرسال الرسالة"
+          >
+            Send Message
+          </button>
 
-          <p id="formMessage"></p>
+          <p id="formMessage" role="status" aria-live="polite"></p>
         </form>
       </section>
     </main>
 
     <!-- Footer -->
     <footer>
-      <p>© 2026 Mohamed Barakat. All Rights Reserved.</p>
+      <p
+        data-en="© 2026 Mohamed Barakat. All Rights Reserved."
+        data-ar="© 2026 محمد بركات. جميع الحقوق محفوظة."
+      >
+        © 2026 Mohamed Barakat. All Rights Reserved.
+      </p>
     </footer>
 
     <!-- Back To Top Button -->
-    <button id="topBtn">↑</button>
+    <button
+      id="topBtn"
+      type="button"
+      aria-label="Back to top"
+      data-label-en="Back to top"
+      data-label-ar="العودة للأعلى"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M12 19V5" />
+        <path d="m5 12 7-7 7 7" />
+      </svg>
+    </button>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
