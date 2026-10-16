@@ -198,3 +198,27 @@ topBtn.addEventListener("click", function () {
         behavior: "smooth"
     });
 });
+
+const revealItems = document.querySelectorAll(
+    ".skills-container .skill, " +
+    ".goals-container .goal, " +
+    ".projects-container .project-card"
+);
+
+const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+                observer.unobserve(entry.target);
+            }
+        });
+    },
+    {
+        threshold: 0.12
+    }
+);
+
+revealItems.forEach((item) => {
+    revealObserver.observe(item);
+});

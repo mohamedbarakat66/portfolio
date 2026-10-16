@@ -265,17 +265,16 @@ header {
 
 /* Skills Section */
 .skills-container,
-.goals-container,
-.projects-container {
+.goals-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
 }
 
+.skill,
 .goal,
-.project-card,
-.skill {
+.project-card {
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
@@ -286,10 +285,8 @@ header {
     width: 220px;
 }
 
-.goal:hover,
-.project-card:hover,
-.skill:hover {
-    transform: translateY(-5px);
+.goal {
+    width: 300px;
 }
 
 .skill h3,
@@ -304,22 +301,58 @@ header {
     color: #666;
 }
 
-.goal {
-    width: 300px;
-}
-
 .goal p,
 .project-card p {
     line-height: 1.6;
 }
 
+.skill:hover,
+.goal:hover,
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Projects Section */
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
 .project-card {
-    width: 350px;
+    width: 100%;
+    min-width: 0;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #f5f7fa;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+    transition: transform .3s;
+}
+
+.project-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.project-content {
+    width: 100%;
+}
+
+.project-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
 }
 
 .project-card p {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     color: #555;
+    line-height: 1.6;
 }
 
 /* Contact Section */
@@ -541,7 +574,6 @@ footer {
         order: 3;
     }
 
-
     .nav-links {
         display: flex;
         position: absolute;
@@ -553,7 +585,6 @@ footer {
         padding: 20px;
         background-color: #fff;
         box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
-
         opacity: 0;
         visibility: hidden;
         transform: translateY(-10px);
@@ -572,7 +603,6 @@ footer {
         transition-delay: 0s;
     }
 
-
     .hero {
         flex-direction: column-reverse;
     }
@@ -590,7 +620,15 @@ footer {
         height: 220px;
     }
 
+    .projects-container {
+        grid-template-columns: 1fr;
+    }
+
     .project-card {
+        padding: 15px;
+    }
+
+    .project-image {
         width: 100%;
     }
 
@@ -641,4 +679,113 @@ html[dir="rtl"] #topBtn {
 html[lang="ar"] .navbar,
 html[lang="ar"] .nav-links {
     direction: ltr;
+}
+/* Contact Icons */
+.contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    margin-top: 25px;
+}
+
+.contact-info a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    color: #2563eb;
+    background-color: #eaf1ff;
+    border: 1px solid #d6e4ff;
+    border-radius: 12px;
+    transition: transform 0.3s ease,
+                background-color 0.3s ease,
+                color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.contact-info a svg {
+    width: 25px;
+    height: 25px;
+}
+
+.contact-info a:hover {
+    color: #fff;
+    background-color: #2563eb;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.25);
+}
+
+/* Dark Mode */
+.dark-mode .contact-info a {
+    color: #93c5fd;
+    background-color: #374151;
+    border-color: #4b5563;
+}
+
+.dark-mode .contact-info a:hover {
+    color: #fff;
+    background-color: #2563eb;
+    border-color: #2563eb;
+}
+
+
+/* Scroll Reveal Animation */
+.skills-container .skill,
+.goals-container .goal,
+.projects-container .project-card {
+    opacity: 0;
+    transform: translateY(25px);
+    transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+}
+
+/* Visible Elements */
+.skills-container .skill.show,
+.goals-container .goal.show,
+.projects-container .project-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger Animation */
+.skills-container .skill:nth-child(2),
+.goals-container .goal:nth-child(2),
+.projects-container .project-card:nth-child(2) {
+    transition-delay: 0.12s;
+}
+
+.skills-container .skill:nth-child(3),
+.goals-container .goal:nth-child(3),
+.projects-container .project-card:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+.skills-container .skill:nth-child(4),
+.goals-container .goal:nth-child(4),
+.projects-container .project-card:nth-child(4) {
+    transition-delay: 0.36s;
+}
+
+/* Project Image Hover */
+.project-image {
+    transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-image {
+    transform: scale(1.03);
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .skills-container .skill,
+    .goals-container .goal,
+    .projects-container .project-card,
+    .project-image {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
 }
